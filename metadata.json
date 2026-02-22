@@ -1,0 +1,8 @@
+{
+  "name": "PhishGuard",
+  "description": "AI-Driven Phishing and Deepfake Simulation for Employee Training. Learn to spot digital deception through realistic AI-generated attacks.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
