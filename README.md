@@ -103,3 +103,8 @@ API keys never reach the client — production-grade security.
 ```bash
 npm install
 npm run dev
+```
+---
+## The Team:
+- Vidyut Rajagopal: Georgia Institute of Technology
+- Kaushik Annamraju: Purdue University
