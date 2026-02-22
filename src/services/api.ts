@@ -1,7 +1,10 @@
 // All AI calls go through the server — API key never touches the browser.
+// When frontend is deployed separately (e.g. Vercel), set VITE_API_ORIGIN to your backend URL (e.g. https://your-app.onrender.com).
+const API_ORIGIN = typeof import.meta !== "undefined" && (import.meta as any).env?.VITE_API_ORIGIN ? (import.meta as any).env.VITE_API_ORIGIN.replace(/\/$/, "") : "";
 
 const api = async (path: string, options?: RequestInit) => {
-  const res = await fetch(path, options);
+  const url = API_ORIGIN ? `${API_ORIGIN}${path.startsWith("/") ? path : `/${path}`}` : path;
+  const res = await fetch(url, options);
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: res.statusText }));
     throw new Error(err.error || `API error ${res.status}`);
